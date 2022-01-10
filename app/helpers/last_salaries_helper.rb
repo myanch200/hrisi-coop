@@ -1,0 +1,2 @@
+module LastSalariesHelper
+end

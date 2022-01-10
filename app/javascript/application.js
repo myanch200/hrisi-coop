@@ -5,3 +5,4 @@ import "trix"
 import "@rails/actiontext"
 import "@controllers/application"
 
+console.log('Hello from application.js')

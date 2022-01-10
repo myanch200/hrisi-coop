@@ -4,3 +4,7 @@
     padding: 20px;
     border-radius: 5px;
 }
+@media (prefers-color-scheme: light) {
+    
+    .entry-content { background:  #eee; color: black; }
+  }
