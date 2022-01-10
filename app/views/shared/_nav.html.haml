@@ -5,8 +5,7 @@
     = link_to  'New entries' , new_entry_path
   - if user_signed_in?
     %li
-      = current_user.email
-
+      =link_to "#{current_user.email}", edit_user_registration_path
     %li
       = button_to 'logout', destroy_user_session_path, method: :delete
   - else
