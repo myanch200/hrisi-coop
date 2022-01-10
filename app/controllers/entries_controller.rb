@@ -1,11 +1,13 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
-  before_action :login_required
+  before_action :authenticate_user!
   # GET /entries or /entries.json
   def index
+   
     @entries = Entry.by_current_user(current_user).from_this_month.order(date: :desc)
     @normal_hours = @entries.where(:is_overtime => false).sum(:hours)
     @overtime_hours = @entries.where(:is_overtime => true).sum(:hours)
+  
   end
 
   # GET /entries/1 or /entries/1.json
