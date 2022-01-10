@@ -8,7 +8,8 @@
   =@normal_hours + @overtime_hours
 %p
   = "Money earned #{Date::MONTHNAMES[Time.now.month]} :"
-  = "£#{@normal_hours * 9.5 + @overtime_hours * 14.25}"
+  = "£#{@normal_hours * current_user.normal_rate + @overtime_hours * current_user.over_time_rate}"
+  = current_user.email
 = link_to "New entry", new_entry_path
 
 #entries

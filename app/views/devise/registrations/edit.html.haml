@@ -6,6 +6,13 @@
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
+    .field
+      = f.label :normal_rate, style: "display: block"
+      = f.number_field :normal_rate , step: 0.5
+    .field
+      = f.label :over_time_rate, style: "display: block"
+      = f.number_field :over_time_rate , step: 0.5
+
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
