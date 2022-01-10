@@ -5,3 +5,8 @@
   %p
     %strong Hours:
     = entry.hours
+  %p
+    - if entry.is_overtime
+      %strong Overtime
+    - else
+      %strong Normal

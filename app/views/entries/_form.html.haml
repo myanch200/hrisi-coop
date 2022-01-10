@@ -12,7 +12,7 @@
     = form.date_field :date
   %div
     = form.label :hours, style: "display: block"
-    = form.number_field :hours
+    = form.number_field :hours , step: 0.5
   %div
     = form.label :is_overtime, style: "display: block"
     = form.check_box :is_overtime

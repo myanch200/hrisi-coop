@@ -3,7 +3,9 @@ class EntriesController < ApplicationController
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.from_this_month.order(date: :desc)
+    @normal_hours = @entries.where(:is_overtime => false).sum(:hours)
+    @overtime_hours = @entries.where(:is_overtime => true).sum(:hours)
   end
 
   # GET /entries/1 or /entries/1.json
@@ -25,13 +27,14 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entry_url(@entry), notice: "Entry was successfully created." }
+        format.html { redirect_to root_path, notice: "Entry was successfully created." }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @entry.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /entries/1 or /entries/1.json
@@ -65,6 +68,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.require(:entry).permit(:date, :hours)
+      params.require(:entry).permit(:date, :hours, :is_overtime)
     end
 end

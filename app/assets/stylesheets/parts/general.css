@@ -1,11 +1,55 @@
+*{
+    
+    box-sizing: border-box;
+
+}
+body {
+   
+    box-sizing: border-box;
+}
 .btn{
-    padding: 0.5rem;
+    padding:0;
     border-radius: 5px;
     border: none;
+   display:flex;
+   justify-content: center;
+    align-items: center;
 
+    
 }
 .btn-green{
     background-color: #3aa55d;
     color: #fff !important;
     text-decoration: none !important;
+}
+.btn-red{
+    background-color: #9c2b17;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+.btn-normal{
+    width:120px;
+    height:40px;
+    text-align:center;
+    line-height:1.1em;
+    font-size:1.1em; 
+}
+
+.flex{
+    display: flex;
+
+   
+
+}
+.align-c{
+    align-items: center;
+}
+.gap-20{
+    gap: 20px;
+}
+.color-red{
+    background-color: #9c2b17;
+}
+.text-white{
+    color: #fff ;
 }
