@@ -6,7 +6,7 @@
   Total working hours:
   =@normal_hours + @overtime_hours
 %p
-  = "Money earned #{Date::MONTHNAMES[Time.now.month]} :"
+  = "Moneys earned #{Date::MONTHNAMES[Time.now.month]} :"
   = "£#{@normal_hours * current_user.normal_rate + @overtime_hours * current_user.over_time_rate}"
   
 = link_to "New entry", new_entry_path
