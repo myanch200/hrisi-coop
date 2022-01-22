@@ -8,6 +8,8 @@
   - if user_signed_in?
     %li
       =link_to "#{current_user.email}", edit_user_registration_path
+    %li 
+      = "£#{current_user.balance}"
     %li
       = button_to 'logout', destroy_user_session_path, method: :delete
   - else
