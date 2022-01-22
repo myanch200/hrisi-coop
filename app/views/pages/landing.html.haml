@@ -1,4 +1,7 @@
 
 %h3 Add new transaction
-=render 'transactions/form'
-=render 'transactions/transaction_list',transactions: @transactions
+- if current_user
+  =render 'transactions/form'
+  =render 'transactions/transaction_list',transactions: @transactions
+- else
+  = render 'welcome_page'
