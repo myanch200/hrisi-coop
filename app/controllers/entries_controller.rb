@@ -6,7 +6,6 @@ class EntriesController < ApplicationController
   def index
    
     @entries = Entry.by_current_user(current_user).from_this_month.order(date: :desc)
-    @total_expenses = Expense.total_expenses_for_user(current_user)
     @normal_hours = @entries.where(:is_overtime => false).sum(:hours)
     @overtime_hours = @entries.where(:is_overtime => true).sum(:hours)
   

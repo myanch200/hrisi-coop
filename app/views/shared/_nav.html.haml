@@ -3,8 +3,6 @@
     = link_to  'Home' , root_path
   %li
     = link_to  'New entries' , new_entry_path
-  %li 
-    = link_to  'New expense' , new_expense_path
   - if user_signed_in?
     %li
       =link_to "#{current_user.email}", edit_user_registration_path
