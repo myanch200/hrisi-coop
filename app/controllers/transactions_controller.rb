@@ -1,2 +1,3 @@
-class TransactionController < ApplicationController
+class TransactionsController < ApplicationController
     def index;end
+end
