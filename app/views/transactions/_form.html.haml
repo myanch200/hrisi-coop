@@ -1,0 +1,26 @@
+= form_with(model: @transaction) do |f|
+  - if (@transaction.errors.any?)
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(@transaction.eerrors.count, "error")
+        prohibited this transaction from being saved:
+      %ul
+        - f.errors.each do |error|
+          %li= error.full_message
+  %div
+    = f.label :name, style: "display: block"
+    =  f.text_field :name , style: "display: block"
+  %div
+    = f.label :note, style: "display: block"
+    = f.text_field :note , style: "display: block"
+  %div
+    = f.label :amount, style: "display: block"
+    = f.number_field :amount , style: "display: block", step: 0.5
+  %div
+    = f.label :category, style: "display: block"
+    = f.text_field :category,   {style: "display: block"}
+  %div
+    = f.label :transaction_type, style: "display: block"
+    =  f.select  :transaction_type, Transaction.transaction_types, {style: "display: block"}
+  %div
+    = f.submit "Save", style: "display: block"

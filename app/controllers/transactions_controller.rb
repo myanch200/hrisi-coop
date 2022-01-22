@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
 
     def create
         @transaction = Transaction.new(transaction_params)
-        @transaction.user = current_user
+        @transaction.user_id = current_user.id
         respond_to do |format|
             if @transaction.save
               format.html { redirect_to root_path, notice: "Transaction was successfully created" }
@@ -58,7 +58,7 @@ class TransactionsController < ApplicationController
         end
 
         def transaction_params
-            params.require(:transaction).permit( :name, :amount, :type, :note, :category)
+            params.require(:transaction).permit( :name, :amount, :transaction_type, :note, :category)
         end
 
 end
