@@ -1,4 +1,4 @@
-%h1 Entries
+%h1 Welcome to salarty
 %p 
   Total overtime hours:
   =@overtime_hours
@@ -11,9 +11,14 @@
   
 = link_to "New entry", new_entry_path
 
+%p 
+  = "Total expenses this month: £#{@total_expenses}"
+
 #entries
   - @entries.each do |entry|
     = render entry
     .flex.align-c.gap-20
       = link_to "Show", entry, :class => "btn btn-green btn-normal"
       = button_to "Destroy this entry", entry, :method => :delete, :confirm => "Are you sure?", :class => "color-red text-white "
+
+
