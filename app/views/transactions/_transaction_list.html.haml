@@ -4,7 +4,6 @@
     - transactions.each do |t|
       = render 'transactions/transaction' , transaction: t
       .flex.align-c.gap-20
-        = link_to "Show", transaction: t, :class => "btn btn-green btn-normal"
         = button_to "Destroy this entry", t, :method => :delete, :confirm => "Are you sure?", :class => "color-red text-white "
   - else
     %p

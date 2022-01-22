@@ -8,3 +8,10 @@
     
     .entry-content { background:  #eee; color: black; }
   }
+
+  .income{
+    color: rgb(14, 161, 14);
+  }
+  .expense{
+    color:  rgb(161, 14, 14);
+  }

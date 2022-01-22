@@ -3,7 +3,7 @@ class Transaction < ApplicationRecord
     after_destroy :process_remove_transaction
     scope :by_current_user, lambda {|user| where("transactions.user_id = ?", user.id) }
 
-    TYPES = %w[income outcome]
+    TYPES = %w[income expense]
 
     def self.transaction_types
       TYPES.map { |type| [type.capitalize, type] }
